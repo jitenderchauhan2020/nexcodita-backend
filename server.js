@@ -9,6 +9,17 @@ const { errorHandler } = require("./middlewares/errorMiddleware");
 dotenv.config();
 connectDB();
 
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin: ["https://nexcodita-frontend.vercel.app"], 
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
+
+
 const app = express();
 
 app.use(express.json()); 
